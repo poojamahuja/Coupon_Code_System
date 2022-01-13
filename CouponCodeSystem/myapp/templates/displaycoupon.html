@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coupon Code System</title>
+    <style>
+        table {
+          border: 1px solid black;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid black;
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    </style>
+</head>
+<body>
+<table class="center">
+    <tr>
+        <th>Promo Code</th>
+        <th>Discount</th>
+        <th>Discount Type</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Max limit</th>
+        <th>Per user limit</th>
+        <th>Actions</th>
+    </tr>
+    {% for i in displaycoupon %}
+    <tr>
+        <td>{{i.promo_code}}</td>
+        <td>{{i.discount}}</td>
+        <td>{{i.discounttype}}</td>
+        <td>{{i.start_date}}</td>
+        <td>{{i.end_date}}</td>
+        <td>{{i.max_limit}}</td>
+        <td>{{i.per_user_limit}}</td>
+        <td>
+            <a href="/editcoupon/{{ i.id }}">Edit</a>
+            <a href="/delcoupon/{{ i.id }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
